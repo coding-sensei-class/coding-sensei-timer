@@ -1,12 +1,17 @@
-# 레포지토리 이름
+# 코딩센세 뽀모도로 타이머
 
-## 강의 정보
+## 강의 목차
 
-### 주제
-{ }
+### 입문자용
+- [1강 : 화면 만들기](https://youtu.be/ehahAn5YUCk?si=pEj4cwfBW4K2ktWC)
+- [2강 : 화면 움직이게 만들기](https://youtu.be/L6y9CjyuuWg?si=CddpsWkdIiW9mjDq)
+- [3강 : 애니메이션 추가하기](https://youtu.be/IcTgYYaOKoQ?si=Ll8Vdku-EXCk1ckT)
+
+### 초급자용
+- [1강 : 타이머 기본 원리 설명 + UI 개선하기]
 
 ### 영상 링크
-{ }
+[코딩센세](https://www.youtube.com/@coding_ez_snese)
 
 ---
 ### FVM(Flutter Version Management) 설정
