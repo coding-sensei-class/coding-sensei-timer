@@ -41,16 +41,11 @@ class TimerScreen extends ConsumerWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
-                  width: 200,
-                  height: 200,
-                  child: Lottie.asset(
-                    lottieState.isStudyPhase
-                        ? 'assets/whale.json'
-                        : 'assets/pig.json',
-                    animate: lottieState.isPlaying,
-                    fit: BoxFit.contain,
-                  ),
+                LottieAnimationWidget(
+                  phase: lottieState.isStudyPhase,
+                  animation: lottieState.isPlaying,
+                  beforeIamge: 'assets/whale.json',
+                  afterImage: 'assets/pig.json',
                 ),
                 const SizedBox(height: 20),
                 Text(
@@ -82,6 +77,43 @@ class TimerScreen extends ConsumerWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+/// 로티 애니메이션 위젯
+class LottieAnimationWidget extends StatelessWidget {
+  /// 어떤 기준으로 로티 애니메이션을 보여줄지 확인하기 위한 값
+  final bool phase;
+
+  /// 애니메이션을 실행할지 말지 확인하기 위한 값
+  final bool animation;
+
+  /// 페이즈값이 true일 때 로티 이미지
+  final String beforeIamge;
+
+  /// 페이즈값이 false일 때 로티 이미지
+  final String afterImage;
+
+  /// 생성자
+  const LottieAnimationWidget({
+    super.key,
+    required this.phase,
+    required this.animation,
+    required this.beforeIamge,
+    required this.afterImage,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 200,
+      height: 200,
+      child: Lottie.asset(
+        phase ? beforeIamge : afterImage,
+        animate: animation,
+        fit: BoxFit.contain,
       ),
     );
   }
