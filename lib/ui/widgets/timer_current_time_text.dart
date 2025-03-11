@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-/// TimerTimeText : 타이머 시간을 표시하는 위젯
-class TimerTimeText extends StatelessWidget {
+/// TimerCurrentTimeText : 타이머 시간을 표시하는 위젯
+class TimerCurrentTimeText extends StatelessWidget {
   /// 현재시각을 나타내는 값
   final int currentTime;
 
   /// 생성자
-  const TimerTimeText({super.key, required this.currentTime});
+  const TimerCurrentTimeText({super.key, required this.currentTime});
 
   @override
   Widget build(BuildContext context) {

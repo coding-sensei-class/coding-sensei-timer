@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:timer/ui/providers/lottie_provider.dart';
 import 'package:timer/ui/providers/timer_provider.dart';
-import 'package:timer/ui/widgets/lottie_animation_widget.dart';
-import 'package:timer/ui/widgets/timer_control_buttons.dart';
-import 'package:timer/ui/widgets/timer_time_text.dart';
+import 'package:timer/ui/widgets/lottie_animation.dart';
+import 'package:timer/ui/widgets/timer_buttons.dart';
+import 'package:timer/ui/widgets/timer_current_time_text.dart';
 
 /// TimerScreen : 뽀모도로 타이머 화면
 class TimerScreen extends ConsumerWidget {
@@ -37,9 +37,9 @@ class TimerScreen extends ConsumerWidget {
                   afterImage: 'assets/pig.json',
                 ),
                 const SizedBox(height: 20),
-                TimerTimeText(currentTime: timerState.currentTime),
+                TimerCurrentTimeText(currentTime: timerState.currentTime),
                 const SizedBox(height: 20),
-                const ControlButtons(),
+                const TimerButtons(),
               ],
             ),
           ),

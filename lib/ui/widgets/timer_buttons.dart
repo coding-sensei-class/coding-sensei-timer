@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:timer/ui/providers/timer_provider.dart';
 
-/// ControlButtons : 타이머 컨트롤 버튼을 나타내는 위젯
-class ControlButtons extends ConsumerWidget {
+/// TimerButtons : 타이머 컨트롤 버튼을 나타내는 위젯
+class TimerButtons extends ConsumerWidget {
   /// 생성자
-  const ControlButtons({super.key});
+  const TimerButtons({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
