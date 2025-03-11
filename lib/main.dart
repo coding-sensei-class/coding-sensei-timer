@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:timer/timer_screen.dart';
+import 'package:timer/ui/screens/timer_screen.dart';
 
 // void : 아무 것도 리턴하지 않는 함수
 void main() {
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // 처음으로 보여줄 스크린 : home
-      home: TimerScreen(),
+      home: const TimerScreen(),
     );
   }
 }
