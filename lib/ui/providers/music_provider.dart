@@ -2,11 +2,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:just_audio/just_audio.dart';
 
 /// 음악 프로바이더
-final musicNotifierProvider =
-    StateNotifierProvider<MusicNotifier, MusicState>(
-      (ref) =>
-          MusicNotifier(),
-    );
+final musicNotifierProvider = StateNotifierProvider<MusicNotifier, MusicState>(
+  (ref) => MusicNotifier(),
+);
 
 /// 음악 상태 관리를 위한 NotifierProvider
 class MusicNotifier extends StateNotifier<MusicState> {

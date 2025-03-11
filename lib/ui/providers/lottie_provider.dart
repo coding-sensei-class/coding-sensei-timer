@@ -4,20 +4,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class LottieState {
   /// 로티가 재생 중인지 확인하기 위한 값
   final bool isPlaying;
+
   /// 로티가 공부 중인지, 휴식 중인지 확인하기 위한 값
   final bool isStudyPhase;
 
   /// 로티 상태의 초기화
-  const LottieState({
-    this.isPlaying = false,
-    this.isStudyPhase = true,
-  });
+  const LottieState({this.isPlaying = false, this.isStudyPhase = true});
 
   /// 로티 상태의 복사
-  LottieState copyWith({
-    bool? isPlaying,
-    bool? isStudyPhase,
-  }) {
+  LottieState copyWith({bool? isPlaying, bool? isStudyPhase}) {
     return LottieState(
       isPlaying: isPlaying ?? this.isPlaying,
       isStudyPhase: isStudyPhase ?? this.isStudyPhase,
@@ -44,5 +39,5 @@ class LottieNotifier extends StateNotifier<LottieState> {
 /// 로티 프로바이더
 final lottieNotifierProvider =
     StateNotifierProvider<LottieNotifier, LottieState>((ref) {
-  return LottieNotifier();
-});
+      return LottieNotifier();
+    });
