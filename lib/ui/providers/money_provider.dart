@@ -1,11 +1,13 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/// 돈 상태를 나타내는 클래스
-final moneyNotifierProvider = StateNotifierProvider<MoneyNotifier, MoneyState>(
-  (ref) => MoneyNotifier(),
-);
+/// 머니 프로바이더
+final moneyNotifierProvider = StateNotifierProvider<MoneyNotifier, MoneyState>((
+  ref,
+) {
+  return MoneyNotifier();
+});
 
-/// 돈 상태를 나타내는 클래스
+/// 로티 상태를 나타내는 클래스
 class MoneyState {
   /// 현재 금액
   final int amount;
@@ -19,7 +21,7 @@ class MoneyState {
   }
 }
 
-/// 돈 상태 관리를 위한 NotifierProvider
+/// 돈 상태를 관리하는 노티파이어
 class MoneyNotifier extends StateNotifier<MoneyState> {
   /// 돈 상태의 초기화
   MoneyNotifier() : super(const MoneyState(amount: 0));
@@ -27,10 +29,5 @@ class MoneyNotifier extends StateNotifier<MoneyState> {
   /// 금액 증가
   void increaseAmount() {
     state = state.copyWith(amount: state.amount + 100);
-  }
-
-  /// 금액 감소
-  void resetAmount() {
-    state = const MoneyState(amount: 0);
   }
 }
