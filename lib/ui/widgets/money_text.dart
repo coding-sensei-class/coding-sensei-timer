@@ -12,7 +12,7 @@ class MoneyText extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final moneyState = ref.watch(moneyNotifierProvider);
     final formatter = NumberFormat('#,###');
-    
+
     return SafeArea(
       child: Container(
         width: double.infinity,
@@ -37,4 +37,4 @@ class MoneyText extends ConsumerWidget {
       ),
     );
   }
-} 
+}
