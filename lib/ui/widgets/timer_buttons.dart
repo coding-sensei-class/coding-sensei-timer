@@ -16,7 +16,7 @@ class TimerButtons extends ConsumerWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         // Timer Control Buttons
-        _buildNeonButton(
+        NeonButton(
           icon: timerState.isRunning ? Icons.pause : Icons.play_arrow,
           color: Colors.green,
           onPressed:
@@ -25,7 +25,7 @@ class TimerButtons extends ConsumerWidget {
                   : timerNotifier.startTimer,
         ),
         const SizedBox(width: 20),
-        _buildNeonButton(
+        NeonButton(
           icon: Icons.restart_alt,
           color: Colors.red,
           onPressed: () {
@@ -35,37 +35,39 @@ class TimerButtons extends ConsumerWidget {
       ],
     );
   }
+}
 
-  Widget _buildNeonButton({
-    required IconData icon,
-    required Color color,
-    required VoidCallback onPressed,
-  }) {
-    return Container(
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        boxShadow: [
-          BoxShadow(
-            color: color.withOpacity(0.6),
-            blurRadius: 12,
-            spreadRadius: 2,
-          ),
-        ],
-      ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: onPressed,
-          customBorder: const CircleBorder(),
-          child: Container(
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: color.withOpacity(0.2),
-            ),
-            child: Icon(icon, color: color, size: 32),
-          ),
+/// NeonButton : 눌렀을 때 반짝이는 버튼 위젯
+class NeonButton extends StatelessWidget {
+  /// 아이콘
+  final IconData icon;
+
+  /// 색상
+  final Color color;
+
+  /// 눌렀을 때 실행할 함수
+  final VoidCallback onPressed;
+
+  /// 생성자
+  const NeonButton({
+    super.key,
+    required this.icon,
+    required this.color,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onPressed,
+      customBorder: const CircleBorder(),
+      child: Container(
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: color.withAlpha(60),
         ),
+        child: Icon(icon, color: color, size: 32),
       ),
     );
   }

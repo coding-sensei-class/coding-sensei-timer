@@ -7,6 +7,34 @@ final timerNotifierProvider = StateNotifierProvider<TimerNotifier, TimerState>(
   (ref) => TimerNotifier(),
 );
 
+/// 타이머 상태를 나타내는 클래스
+class TimerState {
+  /// 현재 시간
+  final int currentTime;
+
+  /// 타이머가 실행 중인지 확인하기 위한 값
+  final bool isRunning;
+
+  /// 공부 중인지, 휴식 중인지 확인하기 위한 값
+  final bool isStudyPhase;
+
+  /// 타이머 상태의 초기화
+  TimerState({
+    required this.currentTime,
+    required this.isRunning,
+    required this.isStudyPhase,
+  });
+
+  /// 불변 객체
+  TimerState copyWith({int? currentTime, bool? isRunning, bool? isStudyPhase}) {
+    return TimerState(
+      currentTime: currentTime ?? this.currentTime,
+      isRunning: isRunning ?? this.isRunning,
+      isStudyPhase: isStudyPhase ?? this.isStudyPhase,
+    );
+  }
+}
+
 /// 타이머 상태 관리용 클래스
 class TimerNotifier extends StateNotifier<TimerState> {
   /// 가상의 사이버 타이머
@@ -60,34 +88,6 @@ class TimerNotifier extends StateNotifier<TimerState> {
       currentTime: startTime,
       isRunning: false,
       isStudyPhase: true,
-    );
-  }
-}
-
-/// 타이머 상태를 나타내는 클래스
-class TimerState {
-  /// 현재 시간
-  final int currentTime;
-
-  /// 타이머가 실행 중인지 확인하기 위한 값
-  final bool isRunning;
-
-  /// 공부 중인지, 휴식 중인지 확인하기 위한 값
-  final bool isStudyPhase;
-
-  /// 타이머 상태의 초기화
-  TimerState({
-    required this.currentTime,
-    required this.isRunning,
-    required this.isStudyPhase,
-  });
-
-  /// 불변 객체
-  TimerState copyWith({int? currentTime, bool? isRunning, bool? isStudyPhase}) {
-    return TimerState(
-      currentTime: currentTime ?? this.currentTime,
-      isRunning: isRunning ?? this.isRunning,
-      isStudyPhase: isStudyPhase ?? this.isStudyPhase,
     );
   }
 }
