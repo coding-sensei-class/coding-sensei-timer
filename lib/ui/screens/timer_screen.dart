@@ -24,7 +24,7 @@ class TimerScreen extends ConsumerWidget {
     ref.listen(timerNotifierProvider, (previous, current) {
       lottieNotifier.setPhase(current.isStudyPhase);
       lottieNotifier.toggleAnimation(current.isRunning);
-      
+
       // 타이머가 실행 중이고 공부 페이즈일 때만 금액 증가
       if (current.isRunning && current.isStudyPhase) {
         moneyNotifier.increaseAmount();
