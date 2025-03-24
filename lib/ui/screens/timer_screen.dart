@@ -26,11 +26,9 @@ class TimerScreen extends ConsumerWidget {
       lottieNotifier.toggleAnimation(current.isRunning);
 
       /// 타이머가 올라가면서, 만약에 공부중이면 돈도 증가한다.
-      if (current.isRunning && current.isStudyPhase){
+      if (current.isRunning && current.isStudyPhase) {
         moneyNotifier.increaseAmount();
       }
-
-
     });
 
     return Scaffold(
