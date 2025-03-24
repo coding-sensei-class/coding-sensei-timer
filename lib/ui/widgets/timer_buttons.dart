@@ -46,7 +46,7 @@ class TimerButtons extends ConsumerWidget {
         shape: BoxShape.circle,
         boxShadow: [
           BoxShadow(
-            color: color.withOpacity(0.6),
+            color: color.withAlpha(60),
             blurRadius: 12,
             spreadRadius: 2,
           ),
@@ -61,7 +61,7 @@ class TimerButtons extends ConsumerWidget {
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: color.withOpacity(0.2),
+              color: color.withAlpha(20),
             ),
             child: Icon(icon, color: color, size: 32),
           ),
