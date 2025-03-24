@@ -2,54 +2,50 @@ import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+/// 타이머 프로바이더 : 뽀모도로 타이머 관리용
 final timerNotifierProvider = StateNotifierProvider<TimerNotifier, TimerState>(
   (ref) => TimerNotifier(),
 );
 
+/// 타이머 상태 관리용 클래스
 class TimerNotifier extends StateNotifier<TimerState> {
-  Timer? _timer; // 가상의 사이버 타이머
-  final int startTime = 5; // 25분 공부 시간
-  final int breakTime = 3; // 5분 휴식 시간
+  /// 가상의 사이버 타이머
+  Timer? _timer;
 
+  /// 공부 시간을 설정해주세요.
+  final int startTime = 5;
+
+  /// 휴식 시간을 설정해주세요.
+  final int breakTime = 3;
+
+  /// 타이머 상태의 초기화
   TimerNotifier()
-      : super(TimerState(
-    currentTime: 5,
-    isRunning: false,
-    isStudyPhase: true,
-  ));
+    : super(TimerState(currentTime: 5, isRunning: false, isStudyPhase: true));
 
-  // 할수 있는 일 1번
+  /// 타이머 시작
   void startTimer() {
     if (!state.isRunning) {
-      state = state.copyWith(
-        isRunning: true,
-      );
+      state = state.copyWith(isRunning: true);
 
       _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
         if (state.currentTime > 0) {
           state = state.copyWith(currentTime: state.currentTime - 1);
         } else {
           if (state.isStudyPhase) {
-            // 스터디 페이즈가 끝났을 때
+            /// 스터디 페이즈가 끝났을 때
             print(' Study phase completed!');
-            state = state.copyWith(
-              currentTime: breakTime,
-              isStudyPhase: false,
-            );
+            state = state.copyWith(currentTime: breakTime, isStudyPhase: false);
           } else {
-            // 휴식 페이즈가 끝났을 때
+            /// 휴식 페이즈가 끝났을 때
             print(' Break phase completed!');
-            state = state.copyWith(
-              currentTime: startTime,
-              isStudyPhase: true,
-            );
+            state = state.copyWith(currentTime: startTime, isStudyPhase: true);
           }
         }
       });
     }
   }
 
-  // 할 수 있는 일 2번
+  /// 타이머 정지
   void pauseTimer() {
     if (state.isRunning) {
       _timer?.cancel();
@@ -57,7 +53,7 @@ class TimerNotifier extends StateNotifier<TimerState> {
     }
   }
 
-  // 할 수 있는 일 3번
+  /// 타이머 초기화
   void resetTimer() {
     _timer?.cancel();
     state = state.copyWith(
@@ -68,23 +64,26 @@ class TimerNotifier extends StateNotifier<TimerState> {
   }
 }
 
+/// 타이머 상태를 나타내는 클래스
 class TimerState {
-  final int currentTime; // 현재 시간
-  final bool isRunning; // 멈춰 있는지, 움직이고 있는지
-  final bool isStudyPhase; // 공부 중인지, 휴식 중인지
+  /// 현재 시간
+  final int currentTime;
 
+  /// 타이머가 실행 중인지 확인하기 위한 값
+  final bool isRunning;
+
+  /// 공부 중인지, 휴식 중인지 확인하기 위한 값
+  final bool isStudyPhase;
+
+  /// 타이머 상태의 초기화
   TimerState({
     required this.currentTime,
     required this.isRunning,
     required this.isStudyPhase,
   });
 
-  // 불변 객체
-  TimerState copyWith({
-    int? currentTime,
-    bool? isRunning,
-    bool? isStudyPhase,
-  }) {
+  /// 불변 객체
+  TimerState copyWith({int? currentTime, bool? isRunning, bool? isStudyPhase}) {
     return TimerState(
       currentTime: currentTime ?? this.currentTime,
       isRunning: isRunning ?? this.isRunning,
