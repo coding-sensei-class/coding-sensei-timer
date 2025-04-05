@@ -2,9 +2,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// 로티 프로바이더
 final lottieNotifierProvider =
-StateNotifierProvider<LottieNotifier, LottieState>((ref) {
-  return LottieNotifier();
-});
+    StateNotifierProvider<LottieNotifier, LottieState>((ref) {
+      return LottieNotifier();
+    });
 
 /// 로티 상태를 나타내는 클래스
 class LottieState {
