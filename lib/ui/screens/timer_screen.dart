@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:timer/ui/providers/lottie_provider.dart';
 import 'package:timer/ui/providers/money_provider.dart';
 import 'package:timer/ui/providers/timer_provider.dart';
+import 'package:timer/ui/widgets/custom_drawer.dart';
 import 'package:timer/ui/widgets/lottie_animation.dart';
 import 'package:timer/ui/widgets/money_text.dart';
 import 'package:timer/ui/widgets/timer_buttons.dart';
@@ -26,14 +27,14 @@ class TimerScreen extends ConsumerWidget {
       lottieNotifier.toggleAnimation(current.isRunning);
 
       /// 타이머가 올라가면서, 만약에 공부중이면 돈도 증가한다.
-      if (current.isRunning && current.isStudyPhase){
+      if (current.isRunning && current.isStudyPhase) {
         moneyNotifier.increaseAmount();
       }
-
-
     });
 
     return Scaffold(
+      appBar: AppBar(),
+      endDrawer: const CustomDrawer(),
       body: Stack(
         children: [
           Center(
