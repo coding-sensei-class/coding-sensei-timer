@@ -8,7 +8,8 @@
 - [3강 : 애니메이션 추가하기](https://youtu.be/IcTgYYaOKoQ?si=Ll8Vdku-EXCk1ckT)
 
 ### 초급자용
-- [1강 : 타이머 기본 원리 설명 + UI 개선하기]
+- [4강 : 공부하면서 돈 버는 듯한 느낌을 주기](https://www.youtube.com/watch?v=Drg6qZ_mJMw&t=102s)
+- [5강 : 상점 만들기](https://youtu.be/jb23FBcWV88)
 
 ### 영상 링크
 [코딩센세](https://www.youtube.com/@coding_ez_snese)

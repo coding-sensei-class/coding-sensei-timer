@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:timer/ui/providers/lottie_provider.dart';
 import 'package:timer/ui/providers/money_provider.dart';
 import 'package:timer/ui/providers/timer_provider.dart';
+import 'package:timer/ui/widgets/custom_drawer.dart';
 import 'package:timer/ui/widgets/lottie_animation.dart';
 import 'package:timer/ui/widgets/money_text.dart';
 import 'package:timer/ui/widgets/timer_buttons.dart';
@@ -32,6 +33,8 @@ class TimerScreen extends ConsumerWidget {
     });
 
     return Scaffold(
+      appBar: AppBar(),
+      endDrawer: const CustomDrawer(),
       body: Stack(
         children: [
           Center(

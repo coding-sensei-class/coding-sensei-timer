@@ -19,6 +19,12 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         // 테마! 스타일, 색상, 폰트 등을 설정\
+        appBarTheme: const AppBarTheme(backgroundColor: Colors.black),
+        drawerTheme: const DrawerThemeData(backgroundColor: Colors.black45),
+        listTileTheme: const ListTileThemeData(
+          titleTextStyle: TextStyle(color: Colors.white),
+          iconColor: Colors.white,
+        ),
         scaffoldBackgroundColor: Colors.black,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
