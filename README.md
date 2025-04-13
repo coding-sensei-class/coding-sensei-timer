@@ -9,7 +9,7 @@
 
 ### 초급자용
 - [4강 : 공부하면서 돈 버는 듯한 느낌을 주기](https://www.youtube.com/watch?v=Drg6qZ_mJMw&t=102s)
-- [5강 : ]
+- [5강 : 상점 만들기](https://youtu.be/jb23FBcWV88)
 
 ### 영상 링크
 [코딩센세](https://www.youtube.com/@coding_ez_snese)
