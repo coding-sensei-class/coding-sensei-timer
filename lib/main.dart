@@ -1,10 +1,12 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:timer/ui/screens/timer_screen.dart';
 
 // void : 아무 것도 리턴하지 않는 함수
-void main() {
-  // main -> appStart
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // 통신 전에 넣어줘야 함
+  await Firebase.initializeApp(); // 비동기 형태로 반환하고 있으면 곤란합니다!
   runApp(const ProviderScope(child: MyApp()));
 }
 
